@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32408.312
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sql-bindings", "sql-bindings\sql-bindings.csproj", "{22F788D0-4729-4CA0-BBD9-A865A93818D0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "table-managed-identity", "table-managed-identity\table-managed-identity.csproj", "{389925B0-6B8C-4E0E-929B-263CC5D836DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{22F788D0-4729-4CA0-BBD9-A865A93818D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F788D0-4729-4CA0-BBD9-A865A93818D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F788D0-4729-4CA0-BBD9-A865A93818D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
