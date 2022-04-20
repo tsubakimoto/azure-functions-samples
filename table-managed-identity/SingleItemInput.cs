@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Azure.Data.Tables;
+﻿using Azure.Data.Tables;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -11,7 +10,7 @@ namespace AzureTableManagedIdentitySample
     public static class SingleItemInput
     {
         [FunctionName("SingleItemInput")]
-        public static async Task<IActionResult> Run(
+        public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             [Table("Items", "item1", "1", Connection = "MyTableService")] TableEntity entity,
             ILogger log)
