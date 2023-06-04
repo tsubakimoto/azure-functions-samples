@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sql-bindings", "sql-binding
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "table-managed-identity", "table-managed-identity\table-managed-identity.csproj", "{389925B0-6B8C-4E0E-929B-263CC5D836DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inprocess-func", "inprocess-func\inprocess-func.csproj", "{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-func", "inprocess-func\inprocess-func.csproj", "{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "outofprocess-func", "outofprocess-func\outofprocess-func.csproj", "{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "outofprocess-func", "outofprocess-func\outofprocess-func.csproj", "{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurableFunctionApp1", "storage-triggers-durable-functions\DurableFunctionApp1.csproj", "{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
