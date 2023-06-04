@@ -10,7 +10,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
-namespace DurableFunctionApp1;
+namespace StorageTriggersDurableFunctions;
 
 public class Orchestrator
 {

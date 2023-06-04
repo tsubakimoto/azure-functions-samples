@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-[assembly: FunctionsStartup(typeof(DurableFunctionApp1.Startup))]
-namespace DurableFunctionApp1;
+[assembly: FunctionsStartup(typeof(StorageTriggersDurableFunctions.Startup))]
+namespace StorageTriggersDurableFunctions;
 
 public class Startup : FunctionsStartup
 {

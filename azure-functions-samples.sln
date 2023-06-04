@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-func", "inprocess
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "outofprocess-func", "outofprocess-func\outofprocess-func.csproj", "{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurableFunctionApp1", "storage-triggers-durable-functions\DurableFunctionApp1.csproj", "{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "storage-triggers-durable-functions", "storage-triggers-durable-functions\storage-triggers-durable-functions.csproj", "{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

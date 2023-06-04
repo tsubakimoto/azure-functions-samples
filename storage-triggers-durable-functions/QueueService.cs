@@ -1,6 +1,6 @@
 ﻿using Azure.Storage.Queues;
 
-namespace DurableFunctionApp1;
+namespace StorageTriggersDurableFunctions;
 
 public class QueueService : IQueueService
 {
