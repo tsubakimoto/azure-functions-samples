@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "instance_counter": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7115",
+      "launchBrowser": false
+    }
+  }
+}
