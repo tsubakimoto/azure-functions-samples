@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "isolated_net8": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7063",
+      "launchBrowser": false
+    }
+  }
+}
