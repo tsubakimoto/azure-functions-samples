@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sql-bindings", "sql-binding
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "table-managed-identity", "table-managed-identity\table-managed-identity.csproj", "{389925B0-6B8C-4E0E-929B-263CC5D836DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-func", "inprocess-func\inprocess-func.csproj", "{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "outofprocess-func", "outofprocess-func\outofprocess-func.csproj", "{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "storage-triggers-durable-functions", "storage-triggers-durable-functions\storage-triggers-durable-functions.csproj", "{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "instance-counter", "instance-counter\instance-counter.csproj", "{62D2FA78-370B-4DB1-8285-860A90426886}"
@@ -33,14 +29,6 @@ Global
 		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389925B0-6B8C-4E0E-929B-263CC5D836DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E19A2D0-C7E7-48D8-86C9-C9C59354E499}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BAF2DDE-007F-41E0-9DA2-D3F4E4333614}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
