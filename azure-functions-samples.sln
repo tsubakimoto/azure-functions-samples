@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "instance-counter", "instanc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isolated-net8", "isolated-net8\isolated-net8.csproj", "{CE3BA76D-F744-47B6-8AFE-9EB300866944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inprocess-net6", "inprocess-net6\inprocess-net6.csproj", "{AD772816-C107-4CD9-991D-25B3C9B36BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CE3BA76D-F744-47B6-8AFE-9EB300866944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE3BA76D-F744-47B6-8AFE-9EB300866944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE3BA76D-F744-47B6-8AFE-9EB300866944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
