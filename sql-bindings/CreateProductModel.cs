@@ -12,39 +12,38 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
-namespace AzureSqlBindingsSample
+namespace AzureSqlBindingsSample;
+
+public class CreateProductModel
 {
-    public class CreateProductModel
+    private readonly ILogger<CreateProductModel> _logger;
+
+    public CreateProductModel(ILogger<CreateProductModel> log)
     {
-        private readonly ILogger<CreateProductModel> _logger;
+        _logger = log;
+    }
 
-        public CreateProductModel(ILogger<CreateProductModel> log)
+    [FunctionName("CreateProductModel")]
+    [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
+    [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
+    [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(ProductModel), Required = true, Description = "The request body")]
+    [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(ProductModel), Description = "The created response")]
+    public IActionResult Run(
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+        [Sql(
+            commandText: "SalesLT.ProductModel",
+            connectionStringSetting: "SqlConnectionString")] out ProductModel newProductModel)
+    {
+        _logger.LogInformation("CreateProductModel is running.");
+
+        string requestBody = new StreamReader(req.Body).ReadToEnd();
+        ProductModel productModel = JsonConvert.DeserializeObject<ProductModel>(requestBody);
+        newProductModel = new ProductModel
         {
-            _logger = log;
-        }
+            Name = productModel?.Name,
+            ModifiedDate = DateTime.UtcNow
+        };
 
-        [FunctionName("CreateProductModel")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
-        [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(ProductModel), Required = true, Description = "The request body")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(ProductModel), Description = "The created response")]
-        public IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Sql(
-                commandText: "SalesLT.ProductModel",
-                connectionStringSetting: "SqlConnectionString")] out ProductModel newProductModel)
-        {
-            _logger.LogInformation("CreateProductModel is running.");
-
-            string requestBody = new StreamReader(req.Body).ReadToEnd();
-            ProductModel productModel = JsonConvert.DeserializeObject<ProductModel>(requestBody);
-            newProductModel = new ProductModel
-            {
-                Name = productModel?.Name,
-                ModifiedDate = DateTime.UtcNow
-            };
-
-            return new CreatedResult("/api/productModels", newProductModel);
-        }
+        return new CreatedResult("/api/productModels", newProductModel);
     }
 }
