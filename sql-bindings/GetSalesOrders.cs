@@ -35,10 +35,11 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Description = "The OK response")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetSalesOrder/{id}")] HttpRequest req,
-            [Sql(COMMAND_TEXT,
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Id={id}",
-                ConnectionStringSetting = "SqlConnectionString")] IEnumerable<SalesOrder> salesOrders)
+            [Sql(
+                commandText: COMMAND_TEXT,
+                connectionStringSetting: "SqlConnectionString",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Id={id}")] IEnumerable<SalesOrder> salesOrders)
         {
             _logger.LogInformation("GetSalesOrders is running.");
             return new OkObjectResult(salesOrders);

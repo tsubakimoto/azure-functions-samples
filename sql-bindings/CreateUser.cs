@@ -29,8 +29,9 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(User), Description = "The created response")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Sql("dbo.User",
-                ConnectionStringSetting = "SqlConnectionString")] out User newUser)
+            [Sql(
+                commandText: "dbo.User",
+                connectionStringSetting: "SqlConnectionString")] out User newUser)
         {
             _logger.LogInformation("CreateUser is running.");
 
@@ -52,8 +53,9 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(User), Description = "The created response")]
         public IActionResult Run2(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Sql("dbo.User",
-                ConnectionStringSetting = "SqlConnectionString")] out User[] output)
+            [Sql(
+                commandText: "dbo.User",
+                connectionStringSetting: "SqlConnectionString")] out User[] output)
         {
             _logger.LogInformation("CreateUser is running.");
 

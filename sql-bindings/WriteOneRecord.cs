@@ -24,7 +24,9 @@ namespace AzureSqlBindingsSample
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
             ILogger log,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] out ToDoItem newItem)
+            [Sql(
+                commandText: "dbo.ToDo",
+                connectionStringSetting: "SqlConnectionString")] out ToDoItem newItem)
         {
             newItem = new ToDoItem
             {
@@ -43,7 +45,9 @@ namespace AzureSqlBindingsSample
         public static async Task<IActionResult> Run2(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-asynccollector")] HttpRequest req,
             ILogger log,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
+            [Sql(
+                commandText: "dbo.ToDo",
+                connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
         {
             await newItems.AddAsync(new ToDoItem
             {
@@ -68,7 +72,9 @@ namespace AzureSqlBindingsSample
         public static IActionResult Run3(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-ccollector")] HttpRequest req,
             ILogger log,
-            [Sql("dbo.ToDo", ConnectionStringSetting = "SqlConnectionString")] ICollector<ToDoItem> newItems)
+            [Sql(
+                commandText: "dbo.ToDo",
+                connectionStringSetting: "SqlConnectionString")] ICollector<ToDoItem> newItems)
         {
             newItems.Add(new ToDoItem
             {

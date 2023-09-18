@@ -28,10 +28,11 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Description = "The OK response")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [Sql("select * from SalesLT.vGetAllCategories where ParentProductCategoryName = @Name",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Name={Query.name}",
-                ConnectionStringSetting = "SqlConnectionString")] IEnumerable<CategoryView> categories)
+            [Sql(
+                commandText: "select * from SalesLT.vGetAllCategories where ParentProductCategoryName = @Name",
+                connectionStringSetting: "SqlConnectionString",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Name={Query.name}")] IEnumerable<CategoryView> categories)
         {
             _logger.LogInformation("GetCategoryView is running.");
             return new OkObjectResult(categories);

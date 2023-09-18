@@ -29,10 +29,11 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Description = "The OK response")]
         public IActionResult GetAll(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [Sql("select * from SalesLT.Product order by ProductId asc",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "",
-                ConnectionStringSetting = "SqlConnectionString")] IEnumerable<Product> products)
+            [Sql(
+                commandText: "select * from SalesLT.Product order by ProductId asc",
+                connectionStringSetting: "SqlConnectionString",
+                commandType: System.Data.CommandType.Text,
+                parameters: "")] IEnumerable<Product> products)
         {
             _logger.LogInformation("GetAllProducts is running.");
             return new OkObjectResult(products);
@@ -46,10 +47,11 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Description = "The OK response")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [Sql("select * from SalesLT.Product where Color = @Color order by ProductId asc",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Color={Query.color}",
-                ConnectionStringSetting = "SqlConnectionString")] IEnumerable<Product> products)
+            [Sql(
+                commandText: "select * from SalesLT.Product where Color = @Color order by ProductId asc",
+                connectionStringSetting: "SqlConnectionString",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Color={Query.color}")] IEnumerable<Product> products)
         {
             _logger.LogInformation("GetProducts is running.");
             return new OkObjectResult(products);
@@ -63,10 +65,11 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(string), Description = "The OK response")]
         public IActionResult GetCount(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
-            [Sql("select count(ProductId) cnt from SalesLT.Product where Color = @Color",
-                CommandType = System.Data.CommandType.Text,
-                Parameters = "@Color={Query.color}",
-                ConnectionStringSetting = "SqlConnectionString")] IEnumerable<ProductCount> products)
+            [Sql(
+                commandText: "select count(ProductId) cnt from SalesLT.Product where Color = @Color",
+                connectionStringSetting: "SqlConnectionString",
+                commandType: System.Data.CommandType.Text,
+                parameters: "@Color={Query.color}")] IEnumerable<ProductCount> products)
         {
             _logger.LogInformation("GetProductsCount is running.");
             return new OkObjectResult(products.FirstOrDefault());

@@ -30,8 +30,9 @@ namespace AzureSqlBindingsSample
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(ProductModel), Description = "The created response")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-            [Sql("SalesLT.ProductModel",
-                ConnectionStringSetting = "SqlConnectionString")] out ProductModel newProductModel)
+            [Sql(
+                commandText: "SalesLT.ProductModel",
+                connectionStringSetting: "SqlConnectionString")] out ProductModel newProductModel)
         {
             _logger.LogInformation("CreateProductModel is running.");
 
