@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "table-managed-identity", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "storage-triggers-durable-functions", "storage-triggers-durable-functions\storage-triggers-durable-functions.csproj", "{1250DA1C-41CC-41A5-B2B5-6D16728C2E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "instance-counter", "instance-counter\instance-counter.csproj", "{62D2FA78-370B-4DB1-8285-860A90426886}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "instance-counter", "instance-counter\instance-counter.csproj", "{62D2FA78-370B-4DB1-8285-860A90426886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isolated-net8", "isolated-net8\isolated-net8.csproj", "{CE3BA76D-F744-47B6-8AFE-9EB300866944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "isolated-net8", "isolated-net8\isolated-net8.csproj", "{CE3BA76D-F744-47B6-8AFE-9EB300866944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inprocess-net6", "inprocess-net6\inprocess-net6.csproj", "{AD772816-C107-4CD9-991D-25B3C9B36BBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-net6", "inprocess-net6\inprocess-net6.csproj", "{AD772816-C107-4CD9-991D-25B3C9B36BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isolated-net6", "isolated-net6\isolated-net6.csproj", "{8B182E0C-C646-4708-B693-BAF4D1C7BA1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD772816-C107-4CD9-991D-25B3C9B36BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B182E0C-C646-4708-B693-BAF4D1C7BA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B182E0C-C646-4708-B693-BAF4D1C7BA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B182E0C-C646-4708-B693-BAF4D1C7BA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B182E0C-C646-4708-B693-BAF4D1C7BA1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
