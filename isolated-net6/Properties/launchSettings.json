@@ -2,7 +2,7 @@
   "profiles": {
     "isolated_net6": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7108",
+      "commandLineArgs": "--port 7214",
       "launchBrowser": false
     }
   }
