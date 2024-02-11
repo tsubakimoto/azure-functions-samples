@@ -12,7 +12,7 @@ public class Feed
         _logger = loggerFactory.CreateLogger<Feed>();
     }
 
-    [Function("Function1")]
+    [Function("Feed")]
     public void Run([CosmosDBTrigger(
         databaseName: "ToDoList",
         containerName: "Items",
