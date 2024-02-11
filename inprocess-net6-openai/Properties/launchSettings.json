@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "inprocess_net6": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7299",
+      "launchBrowser": false
+    }
+  }
+}
