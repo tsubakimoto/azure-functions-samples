@@ -2,6 +2,8 @@
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+        "AZURE_OPENAI_ENDPOINT": "https://{your-azure-openai-resource-name}.openai.azure.com/",
+        "AZURE_OPENAI_KEY": "{your-azure-openai-key}"
     }
 }
