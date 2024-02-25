@@ -2,15 +2,21 @@
 
 namespace AzureSqlBindingsSample;
 
-public static class WriteOneRecord
+public class WriteOneRecord
 {
+    private readonly ILogger<WriteOneRecord> _logger;
+
+    public WriteOneRecord(ILogger<WriteOneRecord> log)
+    {
+        _logger = log;
+    }
+
     [FunctionName("WriteOneRecord")]
     [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(ToDoItem), Description = "The created response")]
-    public static IActionResult Run(
+    public IActionResult Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
-        ILogger log,
         [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] out ToDoItem newItem)
@@ -21,7 +27,7 @@ public static class WriteOneRecord
             Description = req.Query["desc"]
         };
 
-        log.LogInformation($"C# HTTP trigger function inserted one row");
+        _logger.LogInformation($"C# HTTP trigger function inserted one row");
         return new CreatedResult($"/api/addtodo", newItem);
     }
 
@@ -29,9 +35,8 @@ public static class WriteOneRecord
     [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "text/plain", bodyType: typeof(string), Description = "The created response")]
-    public static async Task<IActionResult> Run2(
+    public async Task<IActionResult> Run2(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-asynccollector")] HttpRequest req,
-        ILogger log,
         [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
@@ -56,9 +61,8 @@ public static class WriteOneRecord
     [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
     [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "text/plain", bodyType: typeof(string), Description = "The created response")]
-    public static IActionResult Run3(
+    public IActionResult Run3(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-ccollector")] HttpRequest req,
-        ILogger log,
         [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] ICollector<ToDoItem> newItems)
