@@ -1,17 +1,4 @@
-﻿using System.IO;
-using System.Net;
-using AzureSqlBindingsSample.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
-
-namespace AzureSqlBindingsSample;
+﻿namespace AzureSqlBindingsSample;
 
 public class CreateUser
 {
@@ -29,7 +16,7 @@ public class CreateUser
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(User), Description = "The created response")]
     public IActionResult Run(
         [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        [Sql(
+        [SqlInput(
             commandText: "dbo.User",
             connectionStringSetting: "SqlConnectionString")] out User newUser)
     {
@@ -53,7 +40,7 @@ public class CreateUser
     [OpenApiResponseWithBody(statusCode: HttpStatusCode.Created, contentType: "application/json", bodyType: typeof(User), Description = "The created response")]
     public IActionResult Run2(
         [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-        [Sql(
+        [SqlInput(
             commandText: "dbo.User",
             connectionStringSetting: "SqlConnectionString")] out User[] output)
     {

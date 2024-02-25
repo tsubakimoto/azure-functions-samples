@@ -1,18 +1,5 @@
 ﻿// https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-azure-sql-output?tabs=csharp
 
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using AzureSqlBindingsSample.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-
 namespace AzureSqlBindingsSample;
 
 public static class WriteOneRecord
@@ -24,7 +11,7 @@ public static class WriteOneRecord
     public static IActionResult Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "addtodo")] HttpRequest req,
         ILogger log,
-        [Sql(
+        [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] out ToDoItem newItem)
     {
@@ -45,7 +32,7 @@ public static class WriteOneRecord
     public static async Task<IActionResult> Run2(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-asynccollector")] HttpRequest req,
         ILogger log,
-        [Sql(
+        [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
     {
@@ -72,7 +59,7 @@ public static class WriteOneRecord
     public static IActionResult Run3(
         [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "addtodo-ccollector")] HttpRequest req,
         ILogger log,
-        [Sql(
+        [SqlInput(
             commandText: "dbo.ToDo",
             connectionStringSetting: "SqlConnectionString")] ICollector<ToDoItem> newItems)
     {
