@@ -1,16 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net;
-using AzureSqlBindingsSample.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Attributes;
-using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
-
-namespace AzureSqlBindingsSample;
+﻿namespace AzureSqlBindingsSample;
 
 public class GetCategoryView
 {
@@ -29,12 +17,21 @@ public class GetCategoryView
     public IActionResult Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
         [Sql(
-            commandText: "select * from SalesLT.vGetAllCategories where ParentProductCategoryName = @Name",
+            commandText: "select * from SalesLT.vGetAllCategories where ProductCategoryName = @Name",
             connectionStringSetting: "SqlConnectionString",
             commandType: System.Data.CommandType.Text,
-            parameters: "@Name={Query.name}")] IEnumerable<CategoryView> categories)
+            parameters: "@Name={Query.name}")] IEnumerable<CategoryView> categories,
+        [Sql(
+            commandText: "select * from SalesLT.ProductCategory where Name = @Name",
+            connectionStringSetting: "SqlConnectionString",
+            commandType: System.Data.CommandType.Text,
+            parameters: "@Name={Query.name}")] IEnumerable<ProductCategory> productCategories)
     {
         _logger.LogInformation("GetCategoryView is running.");
+        foreach (var category in categories)
+        {
+            category.ProductCategory = productCategories.FirstOrDefault(pc => pc.ProductCategoryID == category.ProductCategoryID);
+        }
         return new OkObjectResult(categories);
     }
 }

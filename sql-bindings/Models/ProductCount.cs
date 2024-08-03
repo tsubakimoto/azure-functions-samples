@@ -1,7 +1,6 @@
-﻿namespace AzureSqlBindingsSample.Models
+﻿namespace AzureSqlBindingsSample.Models;
+
+public class ProductCount
 {
-    public class ProductCount
-    {
-        public int Cnt { get; set; }
-    }
+    public int Cnt { get; set; }
 }
