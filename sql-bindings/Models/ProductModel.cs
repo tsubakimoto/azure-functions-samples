@@ -1,10 +1,7 @@
-﻿using System;
+﻿namespace AzureSqlBindingsSample.Models;
 
-namespace AzureSqlBindingsSample.Models
+public class ProductModel
 {
-    public class ProductModel
-    {
-        public string Name { get; set; }
-        public DateTime ModifiedDate { get; set; }
-    }
+    public string Name { get; set; }
+    public DateTime ModifiedDate { get; set; }
 }
