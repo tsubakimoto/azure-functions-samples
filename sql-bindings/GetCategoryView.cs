@@ -17,12 +17,21 @@ public class GetCategoryView
     public IActionResult Run(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
         [Sql(
-            commandText: "select * from SalesLT.vGetAllCategories where ParentProductCategoryName = @Name",
+            commandText: "select * from SalesLT.vGetAllCategories where ProductCategoryName = @Name",
             connectionStringSetting: "SqlConnectionString",
             commandType: System.Data.CommandType.Text,
-            parameters: "@Name={Query.name}")] IEnumerable<CategoryView> categories)
+            parameters: "@Name={Query.name}")] IEnumerable<CategoryView> categories,
+        [Sql(
+            commandText: "select * from SalesLT.ProductCategory where Name = @Name",
+            connectionStringSetting: "SqlConnectionString",
+            commandType: System.Data.CommandType.Text,
+            parameters: "@Name={Query.name}")] IEnumerable<ProductCategory> productCategories)
     {
         _logger.LogInformation("GetCategoryView is running.");
+        foreach (var category in categories)
+        {
+            category.ProductCategory = productCategories.FirstOrDefault(pc => pc.ProductCategoryID == category.ProductCategoryID);
+        }
         return new OkObjectResult(categories);
     }
 }
