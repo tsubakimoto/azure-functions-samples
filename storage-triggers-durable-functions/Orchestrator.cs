@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Azure.Storage.Blobs;
@@ -7,7 +7,6 @@ using Azure.Storage.Queues;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace StorageTriggersDurableFunctions;
@@ -77,7 +76,6 @@ public class Orchestrator
 
     [FunctionName(nameof(BlobTriggerFunction))]
     public async Task BlobTriggerFunction(
-        //[BlobTrigger("myblob-items/{name}")] string myBlob,
         [BlobTrigger("myblob-items/{name}")] BlobClient myBlob,
         [DurableClient] IDurableOrchestrationClient starter)
     {
@@ -98,7 +96,6 @@ public class Orchestrator
     [FunctionName(nameof(QueueTriggerFunction))]
     public async Task QueueTriggerFunction(
         [QueueTrigger("myqueue-items")] string myQueueItem,
-        //[QueueTrigger("myqueue-items")] QueueClient myQueueItem,
         [DurableClient] IDurableOrchestrationClient starter)
     {
         string instanceId = await starter.StartNewAsync(nameof(OrchestratorFunction), null, myQueueItem);

@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-net6-openai", "in
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cosmos-change-feed", "cosmos-change-feed\cosmos-change-feed.csproj", "{D453555D-3375-4BDF-9514-98A18DBC6A80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inprocess-net8", "inprocess-net8\inprocess-net8.csproj", "{9D3A6570-B239-4AFA-B94A-3A50E6B5878F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-net8", "inprocess-net8\inprocess-net8.csproj", "{9D3A6570-B239-4AFA-B94A-3A50E6B5878F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
