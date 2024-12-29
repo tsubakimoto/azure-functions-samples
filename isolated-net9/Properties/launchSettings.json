@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "isolated_net9": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7167",
+      "launchBrowser": false
+    }
+  }
+}
