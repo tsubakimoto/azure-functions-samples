@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inprocess-net8", "inprocess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isolated-net9", "isolated-net9\isolated-net9.csproj", "{5AC0DDBD-7A38-4D1E-A45B-D3D338629C07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "isolated-net9-semantic-kernel", "isolated-net9-semantic-kernel\isolated-net9-semantic-kernel.csproj", "{D2774537-1D8F-4E6F-B594-89DCD24AEA77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{5AC0DDBD-7A38-4D1E-A45B-D3D338629C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC0DDBD-7A38-4D1E-A45B-D3D338629C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC0DDBD-7A38-4D1E-A45B-D3D338629C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2774537-1D8F-4E6F-B594-89DCD24AEA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2774537-1D8F-4E6F-B594-89DCD24AEA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2774537-1D8F-4E6F-B594-89DCD24AEA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2774537-1D8F-4E6F-B594-89DCD24AEA77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
