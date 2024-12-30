@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "isolated_net9_semantic_kernel": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7194",
+      "launchBrowser": false
+    }
+  }
+}
